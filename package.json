@@ -6,6 +6,7 @@
     "name": "Martin Manso",
     "url": "https://github.com/MartinMansoDEV"
   },
+  "repository": "https://github.com/MartinMansoDEV/simple-json-transform",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
