@@ -21,9 +21,9 @@ clean, and kind of fun. (Yes, really.)
 You know what to do:
 
 ```bash
-npm install @martinmansodev/simple-json-transform
+npm install x-json-transform
 # Or, for the yarn enthusiasts:
-yarn add @martinmansodev/simple-json-transform
+yarn add x-json-transform
 ```
 
 ---
@@ -76,7 +76,7 @@ const schema: Schema = {
 ### 3. Transform Like a Boss 😎
 
 ```typescript
-import {transform} from '@martinmansodev/simple-json-transform';
+import {transform} from 'x-json-transform';
 
 const result = transform(data, schema);
 console.log(result);
