@@ -1,6 +1,6 @@
 {
   "name": "x-json-transform",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A lightweight and powerful JSON transformation library that allows you to reshape JSON objects using a declarative schema. Supports path extraction, custom logic application, and chained operations.",
   "keywords": [
     "json",
