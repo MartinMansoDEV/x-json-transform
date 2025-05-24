@@ -1,12 +1,25 @@
 {
   "name": "x-json-transform",
   "version": "1.0.0",
+  "description": "A lightweight and powerful JSON transformation library that allows you to reshape JSON objects using a declarative schema. Supports path extraction, custom logic application, and chained operations.",
+  "keywords": [
+    "json",
+    "transform",
+    "transformation",
+    "schema",
+    "declarative",
+    "json-mapper",
+    "data-manipulation",
+    "typescript",
+    "lodash-alternative"
+  ],
   "license": "MIT",
   "author": {
     "name": "Martin Manso",
     "url": "https://github.com/MartinMansoDEV"
   },
   "repository": "https://github.com/MartinMansoDEV/simple-json-transform",
+  "homepage": "https://github.com/MartinMansoDEV/simple-json-transform",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {

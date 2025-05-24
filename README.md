@@ -1,5 +1,8 @@
 # 🔧 Simple JSON Transform
 
+[![npm version](https://badge.fury.io/js/x-json-transform.svg)](https://badge.fury.io/js/x-json-transform)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 "Transforming JSON data doesn't have to feel like untangling holiday lights. 🎄"
 
 Meet **Simple JSON Transform**, the library that turns messy data into beautifully structured results. Effortless,
@@ -115,15 +118,29 @@ The Result? Magic. ✨
 
 ---
 
+## 📜 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a pull request or open an issue.
+
+A few guidelines:
+- Ensure your code adheres to the existing style.
+- Write tests for new features or bug fixes.
+- Keep commit messages clear and descriptive.
+
+---
+
 ## 🎉 Ready to Simplify Your Life?
 
 Install Simple JSON Transform today and say goodbye to messy JSON transformations forever.
 
 > Warning: Overuse may cause excessive joy.
 > Side effects include cleaner code, fewer bugs, and a strong urge to refactor everything.
-
-This version maintains a professional yet approachable tone while simplifying the explanation. Let me know if it needs
-more tweaks!
 
 
 
