@@ -1,16 +1,16 @@
-# 🔧 Simple JSON Transform
+# 🔧 X JSON Transform
 
 [![npm version](https://badge.fury.io/js/x-json-transform.svg)](https://badge.fury.io/js/x-json-transform)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 "Transforming JSON data doesn't have to feel like untangling holiday lights. 🎄"
 
-Meet **Simple JSON Transform**, the library that turns messy data into beautifully structured results. Effortless,
+Meet **X JSON Transform**, the library that turns messy data into beautifully structured results. Effortless,
 clean, and kind of fun. (Yes, really.)
 
 ---
 
-## 🚀 Why Use Simple JSON Transform?
+## 🚀 Why Use X JSON Transform?
 
 - 💡 **Simple**: Use a schema to describe your transformations. No more manual mapping!
 - 🔗 **Powerful**: Chain transformations with `$pipe` like a data wizard. 🧙‍♂️
@@ -33,7 +33,7 @@ yarn add x-json-transform
 
 ## ⚡ Quick Start
 
-Here's how to use Simple JSON Transform in three easy steps:
+Here's how to use X JSON Transform in three easy steps:
 
 ### 1. Your Data
 
@@ -55,7 +55,7 @@ const data = {
 
 ### 2. Your Schema
 
-Define what you want the result to look like with a simple schema:
+Define what you want the result to look like with a X schema:
 
 ```typescript
 const schema: Schema = {
@@ -137,7 +137,7 @@ A few guidelines:
 
 ## 🎉 Ready to Simplify Your Life?
 
-Install Simple JSON Transform today and say goodbye to messy JSON transformations forever.
+Install X JSON Transform today and say goodbye to messy JSON transformations forever.
 
 > Warning: Overuse may cause excessive joy.
 > Side effects include cleaner code, fewer bugs, and a strong urge to refactor everything.
