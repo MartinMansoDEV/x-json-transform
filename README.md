@@ -116,6 +116,102 @@ The Result? Magic. ✨
 - `$default`: Define fallback values (for when life gives you undefined or you just want to set a default value ).
   Example: `{ $default: 'N/A' }`
 
+- `$if`: Conditional logic to determine which value or transformation to apply.
+  - **Purpose**: Allows you to introduce branching logic into your transformations based on a condition.
+  - **Syntax**: An object with three properties:
+    - `condition`: An expression or value. If it's an object containing other transformation operators (e.g., `{ $get: 'path.to.field' }`, `{ $get: 'path', $apply: (val) => val > 10 }`), it will be processed, and its result will be evaluated for truthiness. Otherwise, the literal value of `condition` is used.
+    - `then`: The value or transformation object to use if the `condition` evaluates to a truthy value.
+    - `else`: The value or transformation object to use if the `condition` evaluates to a falsy value.
+  - **Evaluation**:
+    - The `condition` is evaluated. Standard JavaScript truthiness/falsiness rules apply (e.g., `false`, `0`, `""`, `null`, `undefined`, `NaN` are falsy; everything else is truthy).
+    - If the `condition` is truthy, the `then` branch is processed.
+    - If the `condition` is falsy, the `else` branch is processed.
+  - **Branches**: Both `then` and `else` can be:
+    - A literal value (e.g., a string, number, boolean, array, or object).
+    - Another transformation object (e.g., `{ $get: 'another.path' }`, `{ $apply: (val) => val * 2 }`, or even another nested `$if`).
+
+  **Examples**:
+
+  1.  **Simple boolean condition**:
+      ```typescript
+      const schema = {
+        statusText: {
+          $if: {
+            condition: true, // Direct boolean
+            then: "Active",
+            else: "Inactive"
+          }
+        }
+      };
+      // With any input data, result will be: { statusText: "Active" }
+      ```
+
+  2.  **Condition using `$get`**:
+      ```typescript
+      const data = { user: { isLoggedIn: false, name: "Guest" } };
+      const schema = {
+        greeting: {
+          $if: {
+            condition: { $get: 'user.isLoggedIn' },
+            then: { $get: 'user.name', $apply: (name: string) => `Welcome, ${name}!` },
+            else: "Welcome, Guest!"
+          }
+        }
+      };
+      // result will be: { greeting: "Welcome, Guest!" }
+      ```
+
+  3.  **Nested transformation in `then` branch**:
+      ```typescript
+      const data = { item: { type: "food", price: 10, quantity: 2 } };
+      const schema = {
+        itemValue: {
+          $if: {
+            condition: { $get: 'item.type', $apply: (type: string) => type === "food" },
+            then: { $get: 'item', $apply: (item: any) => item.price * item.quantity }, // Nested $apply
+            else: 0
+          }
+        }
+      };
+      // result will be: { itemValue: 20 }
+      ```
+
+  4.  **`$if` used inside a `$mapper`**:
+      ```typescript
+      const data = {
+        items: [
+          { name: "Apple", type: "fruit", price: 1 },
+          { name: "Shirt", type: "clothing", price: 20 },
+          { name: "Banana", type: "fruit", price: 0.5 }
+        ]
+      };
+      const schema = {
+        processedItems: {
+          $get: 'items',
+          $mapper: { // Applies to each item in the 'items' array
+            description: {
+              $if: {
+                condition: { $get: 'type', $apply: (type: string) => type === 'fruit' },
+                then: { $get: 'name', $apply: (name: string) => `${name} (Fruit)` },
+                else: { $get: 'name', $apply: (name: string) => `${name} (Non-Fruit)` }
+              }
+            },
+            price: { $get: 'price' }
+          }
+        }
+      };
+      /*
+      result will be:
+      {
+        "processedItems": [
+          { "description": "Apple (Fruit)", "price": 1 },
+          { "description": "Shirt (Non-Fruit)", "price": 20 },
+          { "description": "Banana (Fruit)", "price": 0.5 }
+        ]
+      }
+      */
+      ```
+
 ---
 
 ## 📜 License

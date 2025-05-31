@@ -6,8 +6,9 @@ export type FilterOperator = ActionBase & { $filter: (item: unknown) => boolean 
 export type FindOperator = ActionBase & { $find: (item: unknown) => boolean };
 export type MapperOperator = ActionBase & { $mapper: Object };
 export type PipeOperator = ActionBase & { $pipe: Array<TransformOperator> };
+export type IfOperator = ActionBase & { $if: { condition: unknown, then: unknown, else: unknown } };
 
-export type TransformOperator = ApplyOperator | FilterOperator | FindOperator | MapperOperator | PipeOperator | ActionBase;
+export type TransformOperator = ApplyOperator | FilterOperator | FindOperator | MapperOperator | PipeOperator | IfOperator | ActionBase;
 
 export type ActionType =
     | { $default: unknown }
@@ -16,7 +17,8 @@ export type ActionType =
     | FilterOperator
     | FindOperator
     | MapperOperator
-    | PipeOperator;
+    | PipeOperator
+    | IfOperator;
 
 export interface Schema {
     [key: string]: ActionType;

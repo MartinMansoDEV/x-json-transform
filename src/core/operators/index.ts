@@ -3,3 +3,4 @@ export * from './filter';
 export * from './find';
 export * from './mapper';
 export * from './pipe';
+export * from './if';
